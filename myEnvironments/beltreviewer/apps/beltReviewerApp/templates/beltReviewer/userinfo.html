@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>User Info</title>
+    <link rel="stylesheet" href="{% static 'beltReviewer/css/beltReviewer.css' %}"media="screen"  charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="topright">
+            <a href="{% url 'beltReviewerApp:dashboard' %}">Home</a>
+            <a href="{% url 'beltReviewerApp:addBookReview' %}">Add Book and Review </a>
+            <a href="{%url 'beltReviewerApp:logout'  %}">Logout</a>
+        </div>
+        <h1>User Alias: {{user.alias}}</h1>
+        <h3>{{user.name}}</h3>
+        <h3>{{user.email}}</h3>
+        <h3>Total Reviews: {{reviewer.count}}
+        <h1>Posted Reviews on the following books:</h1>
+            {% for review in reviewer %}
+                <p><a href="{% url 'beltReviewerApp:bookInfo' book_id=review.book_title.id %}">
+                     {{review.book_title.title}}</a></p>
+            {% endfor %}
+
+    </div>
+</body>
+</html>

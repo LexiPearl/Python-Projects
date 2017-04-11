@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <table>
+            <thead>
+                <tr>
+                    <td>Friend 1</td><td>Friend 2</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for friendship in friendships %}
+                <tr>
+                    <td>{{friendship.friend1.name}}</td><td>{{friendship.friend2.name}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>add friend form</p>
+        <form action="/add_friend" method='post'>
+            {% csrf_token %}
+            <label for="friend">Add friend:</label>
+            <input type="text" name="friend">
+            <input type="submit" value="submit">
+        </form>
+
+        <p>Add friendship</p>
+        <form action="/add_friendship" method='post'>
+            {% csrf_token %}
+            <select name="friend1" id="friend1">
+                {% for friend in friends %}
+                <option value="{{friend.id}}">{{friend.name}}</option>
+                {% endfor %}
+            </select>
+            <select name="friend2" id="friend2">
+                {% for friend in friends %}
+                <option value="{{friend.id}}">{{friend.name}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="submit">
+        </form>
+
+    </div> <!-- end container -->
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'beltReviewer/css/beltReviewer.css' %}"media="screen"  charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="topright">
+            <a href="{% url 'beltReviewerApp:addBookReview' %}" value="AddBookReview">Add Book and Review </a>
+            <a href="{%url 'beltReviewerApp:logout'  %}">Logout</a>
+        </div>
+        <h1>Welcome, {{request.session.alias}}</h1>
+
+        <h1>Recent Book Reviews:</h1>
+        <div id="bookreviews">
+            {% for recent in recents %}
+            <p><a href="{% url 'beltReviewerApp:bookInfo' book_id=recent.book_title.id %}"> {{recent.book_title.title}}</a></p>
+                <p>Rating: {{recent.rating}}/5</p>
+                <p><a href="{% url 'beltReviewerApp:userInfo' id=recent.book_reviewer.id  %}">{{recent.book_reviewer.alias }}</a>: <em>{{recent.review}}</em></p>
+                <p>{{recent.created_at }}</p>
+            {% endfor %}
+        </div>
+        <div id="bottomstuff">
+        <h1>Other Books with Reviews:</h1>
+            {% for review in allReviews %}
+                <p><a href="{% url 'beltReviewerApp:bookInfo' book_id=book_title.id %}"> {{review.book_title.title}}</a></p>
+                <p>{{book_title.id }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

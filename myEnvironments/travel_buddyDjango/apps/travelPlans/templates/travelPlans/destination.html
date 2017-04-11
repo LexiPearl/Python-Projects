@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'travelPlans/css/travelPlans.css' %}"media="screen"  charset="utf-8">
+    <title>Destination</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="topright">
+            <a href="{% url 'travelPlans:dashboard' %}">Home</a>
+            <a href="{% url 'travelPlans:logout' %}">Logout</a>
+        </div>
+        <h1>Trip Destination</h1>
+        {% for destination in destination %}
+            <h3>{{destination.destinaton}}</h3>
+                <p>Planned By: {{user.id}}</p>
+                <p>Description: {{destination.description}}</p>
+                <p>Travel Date From: {{destination.datefrom}}</p>
+                <p>Trave Date To: {{destination.dateto}}</p>
+                <a href="{% url 'travelPlans:delete' id=destination.id %}">Delete</a></td>
+                </tr>
+        {% endfor %}
+            <h3>Other users joining the trip:</h3>
+                <p>for user in user list out all users who joined!</p>
+        <a href="{% url 'travelPlans:dashboard' %}" value="goback">Enter another trip! </a>
+    </div>
+</body>
+</html>

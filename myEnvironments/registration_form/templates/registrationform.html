@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Registration Page</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='the_wall.css') }}">
+    </head>
+    <body>
+        <div id="wrapper">
+        <h1>Registration</h1>
+        <h3>Please register below!</h3>
+        <div class="issues">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+        <form action='/process' method='post'>
+            <p>Email: <input class="longer" type='text' name='email_address' placeholder="enter a valid email address" value={{email}}></p>
+            <p>First Name: <input class="longer" type='text' name='first_name' placeholder="cannot contain numbers" value={{firstname}}></p>
+            <p>Last Name: <input class="longer" type='text' name='last_name' placeholder="cannot contain numbers" value={{lastname}}></p>
+            <p>Password: <input class="longer" type='password' name='password' placeholder="must be at least 8 characters"></p>
+            <p>Confirm Password: <input class="longer" type='password' name='password_confirmation' placeholder="must be at least 8 characters"></p>
+            <input class="submit" type='submit' value='create user'>
+        </form>
+        <!-- <h3>Already registered?>/h3>
+        <form action="/login" method="post">
+            <input type="submit" value="login">
+        </form> -->
+    </div>
+    </body>
+</html>

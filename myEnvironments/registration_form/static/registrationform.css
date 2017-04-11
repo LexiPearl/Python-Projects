@@ -1,0 +1,33 @@
+*{
+    padding: 0px;
+    margin:0px;
+}
+
+#wrapper{
+    padding: 20px;
+    margin: 40px;
+    width: 800px;
+    background-color: steelblue;
+    display: block;
+}
+
+h3{
+    margin: 10px 0px;
+}
+form input{
+    display: block;
+    margin: 10px 0px;
+}
+.text{
+    width: 200px;
+}
+.submit{
+    width: 75px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    padding: 2px;
+}
+#issues{
+    color:white;
+    margin: 15px 0px;
+}

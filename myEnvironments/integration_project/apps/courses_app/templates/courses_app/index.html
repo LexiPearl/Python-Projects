@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course</title>
+</head>
+<body>
+    <div id="container">
+
+        <h1>Add a new course</h1>
+        <form action={% url "courses_app:process" %} method='post'>
+            {% csrf_token %}
+            Name:<input type="text" name="name">
+            <br>
+            Description:<input type="text" name="description"></textarea>
+            <br>
+            <input type="submit" value="Add">
+        </form>
+        <h3>Courses</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>Course Name</td><td>Description</td><td>Date Added</td><td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                <td>{{course.name}}</td><td>{{course.description}}</td><td>{{course.created_at}}</td><td><a href='{%url "courses_app:remove" id=course.id %}'>Remove</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'multiple_apps:index'%}">Back to Dashboard</a>
+</body>
+</html>

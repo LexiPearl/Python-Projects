@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    width: 1000px;
+    background-color: steelblue;
+}
+
+.line{
+    width: 400px;
+    border: 2px black solid;
+    font-size: 20px;
+}

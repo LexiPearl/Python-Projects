@@ -1,0 +1,13 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#wrapper{
+    margin: 40px;
+    padding: 40px;
+    border: 2px solid black;
+    background-color: steelblue;
+    width: 800px;
+}

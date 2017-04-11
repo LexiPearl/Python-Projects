@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Disappearing Ninjas</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='disappearingninjas.css') }}">
+    </head>
+    <body>
+        <div id="wrapper">
+        <h1>Disappearing Ninjas</h1>
+        {% if not ninja  %}
+            <h3>No ninjas here!</h3>
+        {% elif not color %}
+            <img src="{{ url_for('static', filename='tmnt.png') }}" alt="michaelangelo is the best">
+        {% endif %}
+        {% if color == "blue" %}
+            <img src="{{ url_for('static', filename='leonardo.jpg') }}" alt="not the best!">
+        {% elif color == "orange" %}
+            <img src="{{ url_for('static', filename='michelangelo.jpg') }}" alt="the best!">
+        {% elif color == "red" %}
+            <img src="{{ url_for('static', filename='raphael.jpg') }}" alt="second best!">
+        {% elif color == "purple" %}
+            <img src="{{ url_for('static', filename='donatello.jpg') }}" alt="the worst!">
+        {% elif color   %}
+            <img src="{{ url_for('static', filename='notapril.jpg') }}" alt="notapril!">
+        {% endif %}
+        </div>
+    </body>
+</html>

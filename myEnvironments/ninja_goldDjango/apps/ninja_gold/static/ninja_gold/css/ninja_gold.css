@@ -1,0 +1,51 @@
+*{
+    padding: 0px;
+    margin:0px;
+}
+#wrapper{
+    padding: 20px;
+    margin: 40px;
+    background-color: gainsboro;
+    width: 1000px;
+    display: block;
+}
+
+#topstuff{
+    display: block;
+}
+
+#topstuff h2{
+    display: inline-block;
+}
+
+#middlestuff{
+    display: block;
+}
+#middlestuff h2{
+    margin-bottom: 5px;
+}
+.boxes{
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0px;
+    background-color: steelblue;
+    border: 2px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#bottomstuff{
+    display: block;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}

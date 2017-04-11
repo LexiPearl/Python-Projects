@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Courses and Users</title>
+  </head>
+  <body>
+    <h1>Courses and Users</h1>
+    <form action="{% url 'multiple_apps:create' %}" method='post'>
+      {% csrf_token %}
+      <select name="user">
+        {% for user in users %}
+        <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+        {% endfor %}
+      </select>
+      <select name="course">
+        {% for course in courses %}
+        <option value="{{course.id}}">{{course.name}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Add student to course">
+    </form>
+
+    <a href="{% url 'loginAndRegistration:loginAndRegistration_index' %}">Register new user</a>
+    <a href="{% url 'courses_app:index' %}">Register new course</a>
+
+    <h3>Course Information</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Title</th>
+          <th>Number of Users</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for course in courses %}
+        <tr>
+          <td>{{course.id}}</td>
+          <td>{{course.name}}</td>
+          <td>{{course.usercount}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Book Info</title>
+    <link rel="stylesheet" href="{% static 'beltReviewer/css/beltReviewer.css' %}"media="screen"  charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="topright">
+            <a href="{% url 'beltReviewerApp:dashboard' %}">Home</a>
+            <a href="{% url 'beltReviewerApp:logout' %}">Logout</a>
+        </div>
+        <h1>{{book.title}}</h1>
+        <h2>{{book.author}}</h2>
+        <h1>Reviews:</h1>
+        {% for review in reviews %}
+            <br></br>
+            <p>Rating:{{review.rating}}</p>
+            <p><a href="{% url 'beltReviewerApp:userInfo' id=review.book_reviewer.id %}">{{review.book_reviewer.alias}}</a> says: {{review.description}} </p>
+            <p>Posted on {{review.created_at}}</p>
+
+            {% if review.book_reviewer.id == request.session.user_id %}
+            <p>{{review.id}}</p>
+                <p><a href="{% url 'beltReviewerApp:delete' id=review.id %}">Delete this Review</a></p>
+            {% endif %}
+        {% endfor %}
+        <h2>Add a Review:</h2>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class={{message.tags}} {% endif %}>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="{%url 'beltReviewerApp:addReview' book_id=book.id %}" method='post'>
+            <p>{{book.id}}</p>
+            {% csrf_token %}
+            <textarea rows="4" cols="40" name="review" required></textarea>
+            <p><label for="rating">Rating:</label>
+                <select name="rating" id="rating" required>
+                    <option selected disabled hidden style='display: none' value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+            stars</p>
+            <p><input type="submit" value="Submit Review"></p>
+        </form>
+    </div>
+</body>
+</html>

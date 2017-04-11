@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    margin:40px;
+    width: 800px;
+    padding: 40px;
+    background-color: steelblue;
+    text-align: center;
+}
+
+img{
+    width: 400px;
+    height: 500px;
+    margin-top: -20px;
+}
+
+h3{
+    margin-top: 80px;
+}

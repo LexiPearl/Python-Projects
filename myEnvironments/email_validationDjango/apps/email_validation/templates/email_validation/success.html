@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Email Addresses Entered:</h1>
+        {% if currEmail != None %}
+        <h2>Thanks for submitting this valid email address: {{currEmail}}</h2>
+        {% endif %}
+        <table>
+            <thead>
+                <tr>
+                <td>Email</td><td>Entered at:</td><td></td>
+            </tr>
+            </thead>
+            {% for email in emails %}
+            <tbody>
+                <tr>
+                <td>{{email.emailAddress}}</td><td>{{email.created_at}}</td><td><a href="/delete/{{email.id}}">Delete</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        <a href="/" value="Go Back">Go Back</a>
+
+</body>
+</html>

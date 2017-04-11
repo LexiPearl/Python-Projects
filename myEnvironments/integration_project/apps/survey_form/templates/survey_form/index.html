@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {% load staticfiles %}
+    <title>Survey Form</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'survey_form/css/survey_form.css' %}">
+</head>
+
+<body>
+<div id="wrapper">
+    <h1>Survey Form</h1>
+    <h3>Create a new user</h3>
+    <form action='{%url "survey_form:survey_form_process" %}' method='post'>
+        {% csrf_token %}
+        Name: <input type='text' name='name' value='{{request.POST.name}}'>
+        Location: <select name='location'>
+            <option value="DC">DC</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Silicon Valley">Silicon Valley</option>
+            <option value="Other">Other</option>
+        </select>
+        Favorite Language: <select name='language'>
+            <option value="Python">Python</option>
+            <option value="Ruby">Ruby</option>
+            <option value="Javascript">Javascript</option>
+            <option value="Other">Other</option>
+        </select>
+        Comment: <input type='text' name='comment' value='{{request.POST.comment}}'>
+        <input type='submit' value='create user'>
+    </form>
+</div>
+</body>
+
+</html>

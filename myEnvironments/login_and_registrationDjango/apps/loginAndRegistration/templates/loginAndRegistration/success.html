@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Success! Welcome, {{user.first_name}}</h1>
+        <table>
+            <thead>
+                <tr>
+                <td>First Name</td><td>Last Name</td><td>Email</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>{{user.first_name}}</td><td>{{user.last_name}}</td><td>{{user.email}}</td><td><a href="{% url 'loginAndRegistration:delete' id=user.id %}">Delete</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{% url 'loginAndRegistration:logout' %}" value="Logout">Log Out </a>
+
+</body>
+</html>

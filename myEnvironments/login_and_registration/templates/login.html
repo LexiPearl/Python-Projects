@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login_and_regsitration.css') }}">
+    </head>
+    <body>
+        <div id="wrapper">
+        <h1>Login</h1>
+        <h3>Please register below!</h3>
+        <div class="success">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+        <form action='/login' method='post'>
+            <p>Email: <input class="longer" type='text' name='email_address'></p>
+            <p>Password: <input class="longer" type='password' name='password'></p>
+            <input type='submit' value='login'>
+        </form>
+    </div>
+    </body>
+</html>

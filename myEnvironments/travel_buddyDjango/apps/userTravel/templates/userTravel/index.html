@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Course</title><link rel="stylesheet" href="{% static 'loginAndRegistration/css/loginAndRegistration.css' %}"media="screen"  charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="topright">
+            <a href="{%url 'userTravel:logout'  %}">Logout</a>
+        </div>
+        <h1>Welcome, {{request.session.name}}</h1>
+
+        <h1>Your Trip Schedules</h1>
+        <table>
+            <thead>
+                <tr>
+                <td>Destination</td><td>Travel Start Date</td><td>Travel End Date</td><td>Plan</td>
+            </tr>
+            </thead>
+            <tbody>
+                {% for user in combined %}
+                    {% if request.session.user_id == user.user.id %}
+                <tr>
+                <td><a href="{% url 'travelPlans:index'%}"> {{user.destination.destination}}</a></td><td>{{user.destination.datefrom}}</td><td><{{user.destination.dateto }}</td><td>{{user.destinaton.description }}</td>
+                </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <h1>Other User's Travel Plans</h1>
+        <table>
+            <thead>
+                <tr>
+                <td>Name</td><td>Destination</td><td>Travel Start Date</td><td>Travel End Date</td><td>Do You Want to Join?</td>
+            </tr>
+            </thead>
+            <tbody>
+                {% for destination in destinations %}
+
+                <tr>
+                <td>Name</td><td><a href="{% url 'travelPlans:destination' id=destination.id%}"> {{destination.destination}}</a></td><td>{{destination.datefrom}}</td><td><{{destination.dateto }}</td><td>{{destination.description }}</td><td><a href='{% url "userTravel:join" user_id=request.session.user_id destination_id=destination.id %}'>Join</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'travelPlans:index' %}" value="AddTrip">Add Trip </a>
+    </div>
+</body>
+</html>

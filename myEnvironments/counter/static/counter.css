@@ -1,0 +1,22 @@
+*{
+    padding: 0px;
+    margin:0px;
+}
+#wrapper{
+    padding: 20px;
+    margin: 40px;
+    background-color: gainsboro;
+    width: 1000px;
+    display: block;
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 40px;
+}
+form{
+    display: inline-block;
+    margin-top: 20px;
+}
+.buttons{
+}

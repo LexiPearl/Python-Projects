@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {% load staticfiles %}
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'survey_form/css/survey_form.css' %}">
+</head>
+<body>
+<div id="wrapper">
+    <h1>Submitted Info</h1>
+    <div id="info">
+        <ul>
+            <li><strong>Name:</strong> {{ request.session.name}} </li>
+            <li><strong>Dojo Location:</strong> {{ request.session.location }} </li>
+            <li><strong>Favorite Language:</strong> {{ request.session.language }} </li>
+            <li><strong>Comment:</strong> {{ request.session.comment }} </li>
+        </ul>
+    </div>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Go Back" name="action">
+    </form>
+</div>
+</body>
+
+</html>

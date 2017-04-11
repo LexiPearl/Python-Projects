@@ -1,0 +1,51 @@
+*{
+    padding: 0px;
+    margin:0px;
+}
+#wrapper{
+    padding: 20px;
+    margin: 40px;
+    background-color: gainsboro;
+    width: 750px;
+    display: block;
+    text-align: center;
+}
+
+#box1{
+    width: 250px;
+    text-align: center;
+    padding: 30px;
+    margin: 20px 0px;
+    background-color: red;
+    border: 2px solid black;
+    color: white;
+}
+
+#box2{
+    width: 250px;
+    text-align: center;
+    padding: 30px;
+    margin: 20px 0px;
+    background-color: red;
+    border: 2px solid black;
+    color: white;
+}
+#box3{
+    width: 250px;
+    text-align: center;
+    padding: 30px;
+    margin: 20px 0px;
+    background-color: green;
+    border: 2px solid black;
+    color: white;
+}
+
+.textsubmit{
+    display: block;
+}
+form{
+    text-align:center
+}
+h3{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dojosurvey.css') }}">
+        <title>Landing Page</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Submitted Info</h1>
+        <div id="info">
+            <ul>
+                <li><strong>Name:</strong> {{ session['name'] }} </li>
+                <li><strong>Dojo Location:</strong> {{ session['location'] }} </li>
+                <li><strong>Favorite Language:</strong> {{ session['language'] }} </li>
+                <li><strong>Comment:</strong> {{ session['comment'] }} </li>
+            </ul>
+        </div>
+        <form action="/" method="get">
+            <input type="submit" value="Go Back" name="action">
+        </form>
+    </div>
+</body>
+</html>

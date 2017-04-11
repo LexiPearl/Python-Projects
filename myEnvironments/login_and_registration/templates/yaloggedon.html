@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login_and_regsitration.css') }}">
+    </head>
+    <body>
+        <div id="wrapper">
+        <h1>You're logged on!</h1>
+        <h3>Welcome to your portal!</h3>
+        <div class="success">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+        <img src="{{url_for('static', filename="michaelangelo.jpg")}}">
+        <h2> Proud of you!</h2>
+        </div>
+    </body>
+</html>

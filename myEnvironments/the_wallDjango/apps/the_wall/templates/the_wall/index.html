@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {% load staticfiles %}
+        <title>Login/Registration</title>
+        <link rel="stylesheet" href="{static 'the_wall/css/the_wall.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+        <h1>Login/Registration</h1>
+            <div class="issues">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+        <h3>Are you a new user? Register below!</h3>
+        <form action='/register' method='post'>
+            {% csrf_token %}
+            <p>Email: <input class="longer" type='text' name='email' placeholder="enter a valid email address"></p>
+            <p>First Name: <input class="longer" type='text' name='first_name' placeholder="cannot contain numbers"></p>
+            <p>Last Name: <input class="longer" type='text' name='last_name' placeholder="cannot contain numbers"></p>
+            <p>Password: <input class="longer" type='password' name='password' placeholder="must be at least 8 characters"></p>
+            <p>Confirm Password: <input class="longer" type='password' name='confirm_password' placeholder="must be at least 8 characters"></p>
+            <input class="submit" type='submit' value='Register!'>
+        </form>
+        <h3>Returning user?</h3>
+        <form action='/login' method='post'>
+            {% csrf_token %}
+            <p>Email: <input class="longer" type='text' name='email' placeholder="enter a valid email address"></p>
+            <p>Password: <input class="longer" type='password' name='password' placeholder="must be at least 8 characters"></p>
+            <input class="submit" type='submit' value='Login!'>
+        </form>
+        </div>
+    </body>
+</html>

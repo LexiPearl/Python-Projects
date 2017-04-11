@@ -1,0 +1,45 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    background-color: steelblue;
+    width: 1000px;
+    margin: 40px;
+    padding: 20px;
+}
+
+.longer{
+    width: 200px;
+    height: 20px;
+}
+h1{
+    margin: 10px 0px;
+}
+h3{
+    margin: 10px 0px;
+}
+p{
+    margin: 5px 0px;
+    font-weight: bold;
+}
+
+.issues{
+    width: 250px;
+    background-color: red;
+    margin: 10px 0px;
+}
+
+#rightstuff{
+    text-align: right;
+}
+
+.large{
+    width: 400px;
+    height: 100px;
+}
+
+.right{
+    text-indent: 25px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Friends</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='full_friends.css')}}">
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Edit your friend!</h1>
+        <div id="scroll">
+        {% for friend in one_friend %}
+        <hr>
+        <form action="/friends/{{friend['id']}}" method="POST">
+            <p>ID: {{ friend['id'] }}</p>
+            <p>First Name: <input class="longer" type="text" name= "first_name" placeholder="{{friend['first_name']}}" value="{{friend['first_name']}}"></p>
+            <p>Last Name: <input class="longer" type="text" name="last_name" placeholder="{{friend['last_name']}}" value="{{friend['last_name']}}"></p>
+            <p>Email Address: <input class="longer" type="text" name="email_address" placeholder="{{friend['email_address']}}" value="{{friend['email_address']}}"></p>
+            <p>Date Added: {{friend['created_at']}}</p>
+            <input type="submit" value="save changes">
+        </form>
+        <form action='/friends/{{friend['id']}}/delete' method="POST">
+           <input type="submit" value="delete">
+       </form>
+        <hr>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

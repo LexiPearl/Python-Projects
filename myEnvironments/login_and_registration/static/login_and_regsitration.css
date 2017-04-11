@@ -1,0 +1,29 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+#wrapper{
+    margin: 40px;
+    padding: 20px;
+    background-color: steelblue;
+}
+
+.success{
+    width: 300px;
+    background-color: green;
+}
+
+.issues{
+    width: 300px;
+    background-color: red;
+}
+
+.longer{
+    width: 200px;
+}
+
+img{
+    width: 400px;
+    height: 600px;
+}

@@ -1,0 +1,8 @@
+USE twitter
+
+SELECT * from tweets
+
+INSERT INTO twitter.tweets(id, tweet, user_id, created_at, updated_at)
+VALUES (13, "hello", 1, now(), now())
+
+DELETE FROM `twitter`.`tweets` WHERE `id`='13';

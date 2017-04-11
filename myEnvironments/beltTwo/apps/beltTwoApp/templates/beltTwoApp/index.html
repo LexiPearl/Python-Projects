@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Pokes</title>
+    <link rel="stylesheet" href="{% static 'beltTwoApp/css/beltTwoApp.css' %}"media="screen"  charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="topright">
+            <a href="{%url 'beltTwoApp:logout'%}">Logout</a>
+        </div>
+        <h1>Welcome, {{request.session.alias}}</h1>
+
+        <p>{{pokedYou}} people poked you!</p>
+
+        <div id="lastthree">
+            {% for x in numPokes %}
+            <p>{{x.alias}} poked you {{x.num_pokes}} times.</p>
+            {% endfor %}
+        </div>
+
+        <p>People you may want to poke:</p>azq
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td><td>Alias</td><td>Email Address</td><td>Poke History</td><td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in otherUser %}
+                <tr>
+                <td>{{user.name}}</td3><td>{{user.alias}}</td><td>{{user.email}}</td><td>{{user.user_id.count}}</td><td><a href="{% url 'beltTwoApp:addPoke' pokee_id=user.id  %}">Poke!</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

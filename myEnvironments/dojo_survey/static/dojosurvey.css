@@ -1,0 +1,26 @@
+*{
+    padding: 0px;
+    margin:0px;
+}
+#wrapper{
+    padding: 20px;
+    margin: 40px;
+    background-color: steelblue;
+    width: 1000px;
+    display: block;
+}
+#info{
+    margin-top: 20px;
+    width: 600px;
+    text-decoration: none;
+    text-align: left;
+    display: block;
+}
+ul{
+    text-align: left;
+    display: block;
+}
+li{
+    text-align: left;
+    display: block;
+}
